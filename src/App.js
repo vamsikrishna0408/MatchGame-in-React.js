@@ -271,8 +271,9 @@ class App extends Component {
     if (id === guessImageId) {
       const shuffledImage = imagesList
         .slice()
-        .sort(() => Math.random() - 0.5)[0]
-
+        .sort(() => Math.random() * imagesList.length)[
+        Math.floor(Math.random() * imagesList.length)
+      ]
       this.setState(prevState => ({
         score: prevState.score + 1,
         guessImageUrl: shuffledImage.imageUrl,
